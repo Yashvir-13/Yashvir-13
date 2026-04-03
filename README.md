@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://github.com/Yashvir-13/Yashvir-13/blob/main/image_dab70d.jpg?raw=true" width="100%" alt="Banner" />
+<img src="https://github.com/Yashvir-13/Yashvir-13/blob/main/Banner.png?raw=true" width="100%" alt="Banner" />
 
 <br />
 
