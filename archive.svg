@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="620" viewBox="0 0 1400 620">
+<defs>
+  <radialGradient id="v" cx="50%" cy="42%" r="75%"><stop offset="0" stop-color="#171412"/><stop offset=".7" stop-color="#0e0d0b"/><stop offset="1" stop-color="#080807"/></radialGradient>
+  <linearGradient id="red" x1="0" x2="1"><stop stop-color="#3b1111" stop-opacity="0"/><stop offset=".5" stop-color="#8b2b2b" stop-opacity=".72"/><stop offset="1" stop-color="#3b1111" stop-opacity="0"/></linearGradient>
+  <filter id="blur"><feGaussianBlur stdDeviation="34"/></filter>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 .5 0 0 0 0 .48 0 0 0 0 .44 0 0 0 .055 0"/></filter>
+  <style>
+    .serif{font-family:Georgia,'Times New Roman',serif}
+    .mono{font-family:'Courier New',monospace}
+    @keyframes drift{0%{transform:translateX(-480px)}50%{transform:translateX(520px)}100%{transform:translateX(-480px)}}
+    @keyframes breathe{0%,100%{opacity:.18}50%{opacity:.48}}
+    @keyframes flicker{0%,100%{opacity:1}48%{opacity:.97}49%{opacity:.82}50%{opacity:1}}
+    .drift{animation:drift 24s cubic-bezier(.45,.05,.55,.95) infinite}
+    .breathe{animation:breathe 9s ease-in-out infinite}
+    .flicker{animation:flicker 8s ease-in-out infinite}
+  </style>
+</defs>
+
+<rect width="1400" height="620" fill="url(#v)"/>
+<g opacity=".2" stroke="#e0ddd7" stroke-width="1">
+  <path d="M70 0V620M340 0V620M1070 0V620M1330 0V620"/>
+  <path d="M0 88H1400M0 532H1400"/>
+</g>
+
+<g class="drift">
+  <rect x="300" y="55" width="620" height="390" fill="none" stroke="#e0ddd7" stroke-opacity=".15"/>
+  <rect x="340" y="92" width="540" height="316" fill="none" stroke="#e0ddd7" stroke-opacity=".1"/>
+  <circle cx="610" cy="250" r="165" fill="none" stroke="#e0ddd7" stroke-opacity=".08"/>
+  <path d="M350 407L877 94M360 110L860 402" stroke="#732626" stroke-opacity=".16"/>
+</g>
+
+<ellipse class="drift" cx="650" cy="270" rx="260" ry="120" fill="#732626" opacity=".16" filter="url(#blur)"/>
+<rect class="drift" x="0" y="0" width="390" height="620" fill="url(#red)" opacity=".28" filter="url(#blur)"/>
+
+<g class="flicker">
+  <text x="72" y="72" class="mono" fill="#a7a29a" font-size="13" letter-spacing="3">PRIVATE ARCHIVE / 2026</text>
+  <text x="72" y="574" class="mono" fill="#77736d" font-size="12" letter-spacing="2">INDIA · 02:17 · FRAME 001</text>
+  <text x="1328" y="72" text-anchor="end" class="mono" fill="#77736d" font-size="12" letter-spacing="2">SOFTWARE / CINEMA / IMAGE / TEXT</text>
+</g>
+
+<g class="breathe">
+  <text x="700" y="292" text-anchor="middle" class="serif" fill="#e0ddd7" font-size="104" letter-spacing="-4">YASHVIR</text>
+  <text x="702" y="338" text-anchor="middle" class="mono" fill="#aaa59e" font-size="13" letter-spacing="7">MAKING / OBSERVING / QUESTIONING</text>
+</g>
+
+<g class="mono" fill="#77736d" font-size="11">
+ <text x="72" y="150">01</text><text x="72" y="180">02</text><text x="72" y="210">03</text>
+ <text x="1308" y="448">TIME</text><text x="1308" y="468">MEMORY</text><text x="1308" y="488">PERCEPTION</text>
+</g>
+
+<rect width="1400" height="620" filter="url(#grain)" opacity=".28"/>
+</svg>
