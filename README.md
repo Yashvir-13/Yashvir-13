@@ -8,9 +8,11 @@
 <code>SOFTWARE ENGINEER  /  MACHINE LEARNING  /  COMPUTER VISION</code>
 </p>
 
-<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/motif-system.svg" width="100%" alt="">
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/divider.svg" width="100%" alt="">
 
 ## / SYSTEM
+
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/system-aperture.svg" width="100%" alt="">
 
 I build software around **machine learning, computer vision, language, and intelligent systems**.
 
@@ -27,9 +29,9 @@ TIME      : 02:17
 
 <img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/divider.svg" width="100%" alt="">
 
-<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/motif-selected.svg" width="100%" alt="">
-
 ## / SELECTED SYSTEMS
+
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/systems-frame.svg" width="100%" alt="">
 
 <table>
 <tr>
@@ -95,9 +97,9 @@ PIPELINE ───────────────────────�
 
 <img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/divider.svg" width="100%" alt="">
 
-<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/motif-stack.svg" width="100%" alt="">
-
 ## / STACK
+
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/stack-soundtrack.svg" width="100%" alt="">
 
 <p>
 <img src="https://img.shields.io/badge/-PYTHON-0e0d0b?style=flat-square&logo=python&logoColor=e0ddd7&labelColor=0e0d0b" height="24"/>
@@ -111,9 +113,9 @@ PIPELINE ───────────────────────�
 
 <img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/divider.svg" width="100%" alt="">
 
-<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/motif-signal.svg" width="100%" alt="">
-
 ## / SIGNAL
+
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/signal-scope.svg" width="100%" alt="">
 
 <p align="center">
 <img src="https://github-readme-stats.vercel.app/api?username=Yashvir-13&show_icons=true&hide_title=true&hide_border=true&bg_color=0e0d0b&title_color=e0ddd7&text_color=8a857c&icon_color=732626&ring_color=732626" height="165" alt="github stats"/>
@@ -126,9 +128,9 @@ PIPELINE ───────────────────────�
 
 <img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/divider.svg" width="100%" alt="">
 
-<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/motif-engineering.svg" width="100%" alt="">
-
 ## / ENGINEERING NOTES
+
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/notes-lightmeter.svg" width="100%" alt="">
 
 I like systems that expose their mechanics.
 
@@ -149,7 +151,7 @@ FORMAT     RAW            EXPOSURE   ongoing
 <p align="center">
 <sub>// WHEN I'M NOT CODING</sub><br/>
 <sub>film · photography · writing · music</sub><br/>
-<sub><a href="https://medium.com/@yashvir.126">medium</a> · <a href="https://www.youtube.com/watch?v=5Uh2H4MIgHY&t=9s">youtube</a> · <a href="https://www.linkedin.com/in/yashvir-singh-71281228">linkedin</a></sub>
+<sub><a href="https://medium.com/@yashvir.126">medium</a> · <a href="https://www.youtube.com/watch?v=5Uh2H4MIgHY&t=9s">youtube</a> · <a href="https://www.linkedin.com/in/yashvir-singh-71281228a">linkedin</a></sub>
 </p>
 
 <p align="center">
