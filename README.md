@@ -8,7 +8,7 @@
 <code>SOFTWARE ENGINEER  /  MACHINE LEARNING  /  COMPUTER VISION</code>
 </p>
 
-<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/divider.svg" width="100%" alt="">
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/motif-system.svg" width="100%" alt="">
 
 ## / SYSTEM
 
@@ -26,6 +26,8 @@ TIME      : 02:17
 ```
 
 <img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/divider.svg" width="100%" alt="">
+
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/motif-selected.svg" width="100%" alt="">
 
 ## / SELECTED SYSTEMS
 
@@ -93,6 +95,8 @@ PIPELINE ───────────────────────�
 
 <img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/divider.svg" width="100%" alt="">
 
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/motif-stack.svg" width="100%" alt="">
+
 ## / STACK
 
 <p>
@@ -107,6 +111,8 @@ PIPELINE ───────────────────────�
 
 <img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/divider.svg" width="100%" alt="">
 
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/motif-signal.svg" width="100%" alt="">
+
 ## / SIGNAL
 
 <p align="center">
@@ -119,6 +125,8 @@ PIPELINE ───────────────────────�
 </p>
 
 <img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/divider.svg" width="100%" alt="">
+
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/motif-engineering.svg" width="100%" alt="">
 
 ## / ENGINEERING NOTES
 
@@ -141,7 +149,7 @@ FORMAT     RAW            EXPOSURE   ongoing
 <p align="center">
 <sub>// WHEN I'M NOT CODING</sub><br/>
 <sub>film · photography · writing · music</sub><br/>
-<sub><a href="https://medium.com/@yashvir.126">medium</a> · <a href="https://www.youtube.com/watch?v=5Uh2H4MIgHY&t=9s">youtube</a> · <a href="https://www.linkedin.com/in/yashvir-singh-71281228a">linkedin</a></sub>
+<sub><a href="https://medium.com/@yashvir.126">medium</a> · <a href="https://www.youtube.com/watch?v=5Uh2H4MIgHY&t=9s">youtube</a> · <a href="https://www.linkedin.com/in/yashvir-singh-71281228">linkedin</a></sub>
 </p>
 
 <p align="center">
