@@ -1,49 +1,42 @@
 <div align="center">
 
-<img src="https://github.com/Yashvir-13/Yashvir-13/blob/main/Banner.png?raw=true" width="100%" alt="Yashvir" />
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/archive.svg" width="100%" alt="Yashvir — archive" />
 
-<br /><br />
+<br />
 
-# YASHVIR
+### I MAKE THINGS TO UNDERSTAND THINGS.
 
-<i>software / cinema / photography / writing</i>
+<br />
 
-<br /><br />
-
-**I make things to understand things.**
+`software` &nbsp;&nbsp; `cinema` &nbsp;&nbsp; `photography` &nbsp;&nbsp; `writing`
 
 </div>
 
----
+<br />
 
 <table>
 <tr>
-<td width="68%" valign="top">
+<td width="18%" valign="top">
 
-## FIELD NOTES
+```
+02:17
 
-I work between software, machine learning, film, photography and writing.
-
-The medium changes. The questions keep returning:
-
-`TIME` &nbsp; `MEMORY` &nbsp; `PERCEPTION` &nbsp; `CONSCIOUSNESS` &nbsp; `REALITY`
-
-I am interested in making things that let me look at those questions from another angle.
+still awake.
+still looking.
+```
 
 </td>
-<td width="32%" valign="top">
+<td width="82%" valign="top">
 
-```text
-ARCHIVE  02:17
+I keep moving between mediums.
 
-software       /
-films          /
-photographs    /
-writing        /
-experiments    /
+Sometimes the question becomes a program.  
+Sometimes a frame of film.  
+Sometimes a photograph.  
+Sometimes a page of writing.
 
-status         ongoing
-```
+The medium changes.  
+The obsession doesn't.
 
 </td>
 </tr>
@@ -51,68 +44,88 @@ status         ongoing
 
 <br />
 
-## SELECTED
-
-### 01 — Asteria
-<i>software / systems</i>
-
-A project concerned with how complex information can be made navigable without reducing it to another dashboard.
-
-[repository →](https://github.com/Yashvir-13/Asteria)
+<img src="https://raw.githubusercontent.com/Yashvir-13/Yashvir-13/main/reel.svg" width="100%" alt="Selected work reel" />
 
 <br />
-
-### 02 — Fathom
-<i>AI / philosophy</i>
-
-An epistemically constrained conversational system exploring what happens when an artificial agent is asked to reason inside a philosophical framework.
-
-[repository →](https://github.com/Yashvir-13/An-Epistemically-Constrained-Philosophical-Conversational-Agent)
-
-<br />
-
-### 03 — Samvedna
-<i>computer vision / language</i>
-
-A sentence-level Indian Sign Language interpretation pipeline exploring the transition from gesture to language.
-
-[repository →](https://github.com/Yashvir-13/ISL)
-
-<br />
-
-### 04 — Cinematic Frame Interpolation
-<i>vision / cinema</i>
-
-An experiment in increasing temporal resolution in moving images with classical optical-flow methods.
-
-[repository →](https://github.com/Yashvir-13/Cinematic-Frame-Interpolation-Using-Classical-Techniques)
-
-<br /><br />
-
-> Some things are made because they cannot be explained.
-
-<br />
-
-## OTHER ROOMS
-
-`FILMS` · `PHOTOGRAPHS` · `POEMS` · `NOTES` · `UNFINISHED WORK`
-
-A larger archive is slowly taking shape outside the repositories.
-
-<br />
-
-## ELSEWHERE
-
-[Medium](https://medium.com/@yashvir.126) · [YouTube](https://www.youtube.com/watch?v=5Uh2H4MIgHY&t=9s) · [LinkedIn](https://www.linkedin.com/in/yashvir-singh-71281228)
-
-<br /><br />
 
 <div align="center">
 
-`PYTHON` · `PYTORCH` · `OPENCV` · `C++` · `LINUX` · `DOCKER`
+**SELECTED WORK**
 
-<br /><br />
+<sub>click a frame to enter the repository</sub>
 
-<i>Still trying to understand what I'm looking at.</i>
+</div>
+
+<br />
+
+<table>
+<tr>
+<td align="center" width="25%">
+<a href="https://github.com/Yashvir-13/Asteria"><b>ASTERIA</b></a><br />
+<sub>systems / interface</sub>
+</td>
+<td align="center" width="25%">
+<a href="https://github.com/Yashvir-13/An-Epistemically-Constrained-Philosophical-Conversational-Agent"><b>FATHOM</b></a><br />
+<sub>AI / philosophy</sub>
+</td>
+<td align="center" width="25%">
+<a href="https://github.com/Yashvir-13/ISL"><b>SAMVEDNA</b></a><br />
+<sub>vision / language</sub>
+</td>
+<td align="center" width="25%">
+<a href="https://github.com/Yashvir-13/Cinematic-Frame-Interpolation-Using-Classical-Techniques"><b>FRAME</b></a><br />
+<sub>motion / cinema</sub>
+</td>
+</tr>
+</table>
+
+<br />
+
+---
+
+<br />
+
+<div align="center">
+
+<i>There are things I don't understand yet.</i>
+
+<br />
+<br />
+
+`time` &nbsp; `memory` &nbsp; `perception` &nbsp; `consciousness` &nbsp; `reality`
+
+</div>
+
+<br />
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### ELSEWHERE
+
+[Medium](https://medium.com/@yashvir.126)  
+[YouTube](https://www.youtube.com/watch?v=5Uh2H4MIgHY&t=9s)  
+[LinkedIn](https://www.linkedin.com/in/yashvir-singh-71281228)
+
+</td>
+<td width="50%" valign="top">
+
+### CURRENTLY
+
+Reading things I probably shouldn't read at 2 AM.  
+Watching films.  
+Making small films.  
+Building strange software.
+
+</td>
+</tr>
+</table>
+
+<br />
+
+<div align="right">
+
+<sub>ARCHIVE / YASHVIR-13 / 2026</sub>
 
 </div>
