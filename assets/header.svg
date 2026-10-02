@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Dark deep background -->
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#14161a" />
+      <stop offset="100%" stop-color="#050608" />
+    </radialGradient>
+
+    <!-- Glowing Eclipse -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur1" />
+      <feGaussianBlur stdDeviation="25" result="blur2" />
+      <feGaussianBlur stdDeviation="50" result="blur3" />
+      <feMerge>
+        <feMergeNode in="blur3" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <radialGradient id="eclipse-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="85%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="100%" stop-color="#d0d5df" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Grain/Noise -->
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 0.08 0" />
+    </filter>
+
+    <!-- Linear gradient for the horizon reflection -->
+    <linearGradient id="horizon-glow" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg)" />
+
+  <!-- Stars / Dust (static) -->
+  <g fill="#ffffff" opacity="0.3">
+    <circle cx="200" cy="150" r="0.8"/>
+    <circle cx="950" cy="80" r="1.2"/>
+    <circle cx="850" cy="220" r="0.6"/>
+    <circle cx="150" cy="300" r="1.5"/>
+    <circle cx="1050" cy="350" r="1.0"/>
+    <circle cx="450" cy="50" r="0.5"/>
+    <circle cx="700" cy="120" r="1.8"/>
+    <circle cx="350" cy="280" r="1.1"/>
+  </g>
+
+  <!-- The Eclipse Halo -->
+  <circle cx="600" cy="180" r="105" fill="none" stroke="#e2e8f0" stroke-width="2" filter="url(#glow)" opacity="0.8">
+    <animate attributeName="opacity" values="0.7; 1; 0.7" dur="8s" repeatCount="indefinite" />
+  </circle>
+  
+  <circle cx="600" cy="180" r="102" fill="none" stroke="#ffffff" stroke-width="6" filter="url(#glow)" opacity="0.5">
+    <animate attributeName="opacity" values="0.3; 0.6; 0.3" dur="6s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- The Dark Body (The core of the eclipse) -->
+  <circle cx="600" cy="180" r="100" fill="#050608" />
+
+  <!-- Subtle inner shadow of the dark body to give it spherical volume -->
+  <circle cx="600" cy="180" r="99" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.3" />
+
+  <!-- Horizon Line -->
+  <line x1="0" y1="280" x2="1200" y2="280" stroke="#ffffff" stroke-width="1" opacity="0.15" />
+  <rect x="0" y="280" width="1200" height="120" fill="url(#horizon-glow)" opacity="0.5" />
+
+  <!-- Monolith / Observer -->
+  <rect x="585" y="250" width="30" height="80" fill="#020203" opacity="0.95" />
+  <rect x="585" y="250" width="30" height="80" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.2" />
+
+  <!-- Film grain overlay over everything for cinematic texture -->
+  <rect width="100%" height="100%" filter="url(#noise)" opacity="0.6" style="pointer-events:none;" />
+  
+</svg>
