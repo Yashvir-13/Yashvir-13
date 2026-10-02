@@ -38,8 +38,8 @@ I write software to study perception, representation, and the boundary between h
 ### / TELEMETRY
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Yashvir-13&show_icons=true&theme=transparent&hide_border=true&title_color=a3a3a3&text_color=ffffff&icon_color=a3a3a3" height="150" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yashvir-13&layout=compact&theme=transparent&hide_border=true&title_color=a3a3a3&text_color=ffffff" height="150" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Yashvir-13&show_icons=true&hide_border=true&bg_color=00000000&title_color=a3a3a3&text_color=ffffff&icon_color=a3a3a3" height="150" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yashvir-13&layout=compact&hide_border=true&bg_color=00000000&title_color=a3a3a3&text_color=ffffff" height="150" alt="Top Languages" />
 </p>
 
 <br>
