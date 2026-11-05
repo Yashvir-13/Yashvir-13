@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/header.svg" width="100%" alt="Yashvir Singh — Optical & Acoustic Monograph" />
+  <img src="./assets/header.svg?v=2" width="100%" alt="Yashvir Singh — Optical & Acoustic Monograph" />
 </div>
 
 <br>
@@ -26,27 +26,27 @@ I write software to study perception, representation, and the boundary between h
 ### 02. Selected Works & Research Artifacts
 
 <div align="center">
-  <img src="./assets/artifacts.svg" width="100%" alt="Selected Works Schematic" />
+  <img src="./assets/artifacts.svg?v=2" width="100%" alt="Selected Works Schematic" />
 </div>
 
 <br>
 
-| Seq | Subject | Inquiry & Architecture | Medium & State |
-| :---: | :--- | :--- | :--- |
-| **01** | [**Asteria**](https://github.com/Yashvir-13/Asteria) | A system exploring how scattered information can be retrieved, connected, and made genuinely useful through an associative interface. | `Python` · `ACTIVE` |
-| **02** | [**Fathom**](https://github.com/Yashvir-13/An-Epistemically-Constrained-Philosophical-Conversational-Agent) | An experiment in constrained conversational reasoning—giving a system deliberate boundaries on what it can claim to know. | `Python` · `COMPLETE` |
-| **03** | [**Samvedna**](https://github.com/Yashvir-13/Indian-Sign-Language-Recognition) | Translating continuous visual gesture into machine-readable language, using Indian Sign Language (ISL) as the grounding domain. | `Python · OpenCV` · `ACTIVE` |
-| **04** | [**Cinematic Frame Interpolation**](https://github.com/Yashvir-13/Cinematic-Frame-Interpolation-Using-Classical-Techniques) | Generating intermediate motion frames by treating dense motion estimation as the core problem, relying on classical optical flow. | `Python · C/C++` · `COMPLETE` |
-| **05** | [**DenseNet121 Scene Segmentation**](https://github.com/Yashvir-13/Semantic-Segmenation-using-DenseNet121) | Pixel-level semantic segmentation on Pascal VOC using a DenseNet121 encoder paired with a U-Net multi-scale skip-connection decoder. | `Jupyter Notebook · PyTorch` · `COMPLETE` |
-| **06** | [**Multi-LLM Game-Theoretic Agents**](https://github.com/Yashvir-13/Studying-Multi-LLM-agents-behaviour-in-game-theoretic-environments) | Studying how multiple language model agents cooperate, defect, and adapt strategies inside repeated game-theoretic environments. | `Python` · `ACTIVE` |
+| Seq | Subject | Inquiry & Architecture | Medium | State |
+| :---: | :--- | :--- | :--- | :---: |
+| **01** | [**Asteria**](https://github.com/Yashvir-13/Asteria) | A system exploring how scattered information can be retrieved, connected, and made genuinely useful through an associative interface. | `Python` | `ACTIVE` |
+| **02** | [**Fathom**](https://github.com/Yashvir-13/An-Epistemically-Constrained-Philosophical-Conversational-Agent) | An experiment in constrained conversational reasoning—giving a system deliberate boundaries on what it can claim to know. | `Python` | `COMPLETE` |
+| **03** | [**Samvedna**](https://github.com/Yashvir-13/Indian-Sign-Language-Recognition) | Translating continuous visual gesture into machine-readable language, using Indian Sign Language (ISL) as the grounding domain. | `Python · OpenCV` | `ACTIVE` |
+| **04** | [**Cinematic Frame Interpolation**](https://github.com/Yashvir-13/Cinematic-Frame-Interpolation-Using-Classical-Techniques) | Generating intermediate motion frames by treating dense motion estimation as the core problem, relying on classical optical flow. | `Python · C/C++` | `COMPLETE` |
+| **05** | [**DenseNet121 Scene Segmentation**](https://github.com/Yashvir-13/Semantic-Segmenation-using-DenseNet121) | Pixel-level semantic segmentation on Pascal VOC using a DenseNet121 encoder paired with a U-Net multi-scale skip-connection decoder. | `Jupyter Notebook · PyTorch` | `COMPLETE` |
+| **06** | [**Multi-LLM Game-Theoretic Agents**](https://github.com/Yashvir-13/Studying-Multi-LLM-agents-behaviour-in-game-theoretic-environments) | Studying how multiple language model agents cooperate, defect, and adapt strategies inside repeated game-theoretic environments. | `Python` | `ACTIVE` |
 
 <br>
 
 ### 03. Repository Telemetry & Mediums
 
 <p align="center">
-  <img src="./assets/telemetry.svg" width="49%" alt="Repository Cadence & Systems Index" />
-  <img src="./assets/languages.svg" width="49%" alt="Languages & Experimental Mediums" />
+  <img src="./assets/telemetry.svg?v=2" width="49%" alt="Repository Cadence & Systems Index" />
+  <img src="./assets/languages.svg?v=2" width="49%" alt="Languages & Experimental Mediums" />
 </p>
 
 <br>

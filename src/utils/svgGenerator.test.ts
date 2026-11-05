@@ -14,10 +14,22 @@ import {
   generateLanguagesSvg,
   generateReadmeMarkdown,
   generateTelemetrySvg,
+  wrapSvgText,
 } from './svgGenerator';
 
 test('escapeXml safely encodes XML special characters', () => {
   assert.equal(escapeXml('C & C++ <Optical> "Frame"'), 'C &amp; C++ &lt;Optical&gt; &quot;Frame&quot;');
+});
+
+test('wrapSvgText wraps long descriptions into bounded lines that never collide with schematics', () => {
+  const lines = wrapSvgText(
+    'A system exploring how scattered information can be retrieved, connected, and made genuinely useful through an associative interface.',
+    52,
+    2
+  );
+  assert.equal(lines.length, 2);
+  assert.equal(lines[0].length <= 52, true);
+  assert.equal(lines[1].length <= 52, true);
 });
 
 test('buildHarmonicWavePath generates valid SVG path starting with M', () => {
@@ -44,15 +56,16 @@ test('generateTelemetrySvg and generateLanguagesSvg produce self-contained SVG c
 
   assert.equal(languagesSvg.includes('Python'), true);
   assert.equal(languagesSvg.includes('Jupyter Notebook'), true);
-  assert.equal(languagesSvg.includes('64.2%'), true);
+  assert.equal(languagesSvg.includes('73.3%'), true);
 });
 
-test('generateArtifactsSvg renders all 4 featured project architectures', () => {
+test('generateArtifactsSvg renders all 4 featured project architectures with wrapped tspans', () => {
   const artifactsSvg = generateArtifactsSvg(INITIAL_PROFILE_MANIFEST.projects, DEFAULT_SVG_CONFIG);
   assert.equal(artifactsSvg.includes('Asteria'), true);
   assert.equal(artifactsSvg.includes('Fathom'), true);
   assert.equal(artifactsSvg.includes('Samvedna'), true);
   assert.equal(artifactsSvg.includes('Cinematic Frame Interpolation'), true);
+  assert.equal(artifactsSvg.includes('<tspan x="24"'), true);
 });
 
 test('generateReadmeMarkdown replaces broken external stats with local SVG assets and preserves links', () => {
@@ -61,10 +74,10 @@ test('generateReadmeMarkdown replaces broken external stats with local SVG asset
     INITIAL_TELEMETRY_DATA,
     DEFAULT_SVG_CONFIG
   );
-  assert.equal(md.includes('./assets/header.svg'), true);
-  assert.equal(md.includes('./assets/telemetry.svg'), true);
-  assert.equal(md.includes('./assets/languages.svg'), true);
-  assert.equal(md.includes('./assets/artifacts.svg'), true);
+  assert.equal(md.includes('./assets/header.svg?v=2'), true);
+  assert.equal(md.includes('./assets/telemetry.svg?v=2'), true);
+  assert.equal(md.includes('./assets/languages.svg?v=2'), true);
+  assert.equal(md.includes('./assets/artifacts.svg?v=2'), true);
   assert.equal(md.includes('github-readme-stats.vercel.app'), false);
   assert.equal(md.includes('https://www.yashvirafterhours.me/'), true);
 });

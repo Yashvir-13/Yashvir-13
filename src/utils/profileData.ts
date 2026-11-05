@@ -315,10 +315,10 @@ export const INITIAL_TELEMETRY_DATA: GitHubTelemetryData = {
   lastSynced: '2026-11-05T15:50:00Z',
   source: 'repository-snapshot',
   languages: [
-    { name: 'Python', percentage: 64.2, bytes: 482000, color: '#D99B52' },
-    { name: 'Jupyter Notebook', percentage: 21.8, bytes: 163500, color: '#94B8D7' },
-    { name: 'C / C++', percentage: 8.5, bytes: 63800, color: '#ECEAE4' },
-    { name: 'TypeScript & Web', percentage: 5.5, bytes: 41200, color: '#6E7685' },
+    { name: 'Python', percentage: 73.3, bytes: 549000, color: '#D99B52' },
+    { name: 'Jupyter Notebook', percentage: 13.3, bytes: 99750, color: '#94B8D7' },
+    { name: 'TypeScript', percentage: 6.7, bytes: 50250, color: '#ECEAE4' },
+    { name: 'C/C++ & Systems', percentage: 6.7, bytes: 50250, color: '#6E7685' },
   ],
   recentRepos: [
     {
