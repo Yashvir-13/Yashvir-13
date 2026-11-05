@@ -226,10 +226,10 @@ async function startServer() {
   app.post('/api/push-to-github', async (req, res) => {
     const tokens = getAllGitHubTokens();
     if (tokens.length === 0) {
-      res.status(400).json({
+      res.status(200).json({
         ok: false,
         error:
-          'No GitHub token detected in server environment (GH_TOKEN or GITHUB_TOKEN). All files are already saved to your workspace—click the GitHub icon in the top-right AI Studio toolbar to push.',
+          'No GitHub token detected in server environment (GH_TOKEN or GITHUB_TOKEN). All files are already saved to your workspace—click the GitHub icon in the top-right AI Studio toolbar to sync.',
       });
       return;
     }
@@ -243,7 +243,7 @@ async function startServer() {
 
       const owner = manifest.username;
       const repo = manifest.username;
-      const filesToPush = [
+      const coreFilesToPush = [
         'README.md',
         'assets/header.svg',
         'assets/artifacts.svg',
@@ -264,7 +264,7 @@ async function startServer() {
         const pushedFiles: string[] = [];
         let tokenFailedWith403 = false;
 
-        for (const relPath of filesToPush) {
+        for (const relPath of coreFilesToPush) {
           const fullPath = path.join(__dirname, relPath);
           const contentText = await fs.readFile(fullPath, 'utf8');
           const contentBase64 = Buffer.from(contentText, 'utf8').toString('base64');
@@ -300,24 +300,55 @@ async function startServer() {
           }
         }
 
-        if (!tokenFailedWith403 && pushedFiles.length === filesToPush.length) {
-          res.json({
+        if (!tokenFailedWith403 && pushedFiles.length === coreFilesToPush.length) {
+          // Also attempt to push .github/workflows/telemetry.yml in-memory (without writing to local disk)
+          let workflowPushed = false;
+          try {
+            const workflowRelPath = '.github/workflows/telemetry.yml';
+            const workflowYaml = generateGitHubActionYaml(owner);
+            const workflowBase64 = Buffer.from(workflowYaml, 'utf8').toString('base64');
+            const wfUrl = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${workflowRelPath}`;
+            const existingWfRes = await fetch(wfUrl, { headers });
+            let wfSha: string | undefined;
+            if (existingWfRes.ok) {
+              const existingWfJson = (await existingWfRes.json()) as { sha?: string };
+              wfSha = existingWfJson.sha;
+            }
+            const putWfRes = await fetch(wfUrl, {
+              method: 'PUT',
+              headers,
+              body: JSON.stringify({
+                message: 'chore(workflow): configure automated SVG telemetry GitHub Action',
+                content: workflowBase64,
+                ...(wfSha ? { sha: wfSha } : {}),
+              }),
+            });
+            if (putWfRes.ok) {
+              pushedFiles.push(workflowRelPath);
+              workflowPushed = true;
+            }
+          } catch {
+            // Ignore workflow permission errors if PAT lacks workflow scope
+          }
+
+          res.status(200).json({
             ok: true,
             pushedFiles,
+            workflowPushed,
             repoUrl: `https://github.com/${owner}/${repo}`,
           });
           return;
         }
       }
 
-      // If we reach here, all provided tokens returned 403/401 on write
-      res.status(403).json({
+      // Return HTTP 200 so Cloud Run proxy never intercepts 403 as a network failure
+      res.status(200).json({
         ok: false,
         error:
-          'Your GitHub Personal Access Token is currently Read-Only (403 Resource not accessible by personal access token). Either: (1) Click the GitHub icon in the top-right AI Studio bar to push the saved workspace files directly, or (2) In GitHub → Settings → Developer settings → Fine-grained tokens, set Repository permissions → "Contents" to "Read and write" for Yashvir-13/Yashvir-13.',
+          'Your GitHub Personal Access Token in GH_TOKEN / GITHUB_TOKEN is currently Read-Only (GitHub returned 403: Resource not accessible by personal access token). Use the AI Studio GitHub icon in the top-right toolbar to sync README.md & SVGs, or grant your token "Contents: Read and write" in GitHub → Settings → Developer settings → Fine-grained tokens.',
       });
     } catch (err) {
-      res.status(500).json({
+      res.status(200).json({
         ok: false,
         error: err instanceof Error ? err.message : 'Failed to push files to GitHub',
       });

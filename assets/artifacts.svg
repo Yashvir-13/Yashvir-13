@@ -95,7 +95,7 @@
       Cinematic Frame Interpolation
     </text>
     <text x="24" y="80" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12" fill="#94969C">
-      <tspan x="24" dy="0">Generating intermediate motion frames by treating</tspan><tspan x="24" dy="16.5">dense motion estimation as the core problem,</tspan><tspan x="24" dy="16.5">relying on classical optical flow.</tspan>
+      <tspan x="24" dy="0">Generating intermediate motion frames by treating</tspan><tspan x="24" dy="16.5">dense motion estimation as the core problem, relying</tspan><tspan x="24" dy="16.5">on classical optical flow.</tspan>
     </text>
     <text x="24" y="146" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#94B8D7">
       Python · C/C++ · Complete

@@ -19,10 +19,10 @@
 
   <!-- Multi-Segment Proportional Bar -->
   <g>
-    <rect x="26.0" y="66" width="384.6" height="10" rx="2" fill="#D99B52" />
-    <rect x="413.6" y="66" width="67.2" height="10" rx="2" fill="#94B8D7" />
-    <rect x="483.8" y="66" width="49.8" height="10" rx="2" fill="#ECEAE4" />
-    <rect x="536.6" y="66" width="14.4" height="10" rx="2" fill="#94969C" />
+    <rect x="26.0" y="66" width="384.0" height="10" rx="2" fill="#D99B52" />
+    <rect x="413.0" y="66" width="67.2" height="10" rx="2" fill="#94B8D7" />
+    <rect x="483.2" y="66" width="32.4" height="10" rx="2" fill="#ECEAE4" />
+    <rect x="518.6" y="66" width="32.4" height="10" rx="2" fill="#94969C" />
   </g>
 
   <!-- 2x2 Tabular Breakdown -->
@@ -30,7 +30,7 @@
     <g transform="translate(26, 114)">
       <rect x="0" y="-9" width="8" height="8" rx="1.5" fill="#D99B52" />
       <text x="16" y="-1" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="500" fill="#ECEAE4">Python</text>
-      <text x="246" y="-1" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#94969C">73.4%</text>
+      <text x="246" y="-1" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#94969C">73.3%</text>
       <line x1="0" y1="10" x2="246" y2="10" stroke="#262934" stroke-width="0.75" />
     </g>
     <g transform="translate(294, 114)">
@@ -42,13 +42,13 @@
     <g transform="translate(26, 156)">
       <rect x="0" y="-9" width="8" height="8" rx="1.5" fill="#ECEAE4" />
       <text x="16" y="-1" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="500" fill="#ECEAE4">TypeScript</text>
-      <text x="246" y="-1" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#94969C">10.0%</text>
+      <text x="246" y="-1" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#94969C">6.7%</text>
       <line x1="0" y1="10" x2="246" y2="10" stroke="#262934" stroke-width="0.75" />
     </g>
     <g transform="translate(294, 156)">
       <rect x="0" y="-9" width="8" height="8" rx="1.5" fill="#94969C" />
       <text x="16" y="-1" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="500" fill="#ECEAE4">C/C++ &amp; Systems</text>
-      <text x="246" y="-1" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#94969C">3.3%</text>
+      <text x="246" y="-1" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#94969C">6.7%</text>
       <line x1="0" y1="10" x2="246" y2="10" stroke="#262934" stroke-width="0.75" />
     </g>
 

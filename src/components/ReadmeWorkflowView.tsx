@@ -88,6 +88,14 @@ export const ReadmeWorkflowView: React.FC<ReadmeWorkflowViewProps> = ({
     });
   };
 
+  const githubNewWorkflowUrl = `https://github.com/${encodeURIComponent(
+    manifest.username
+  )}/${encodeURIComponent(
+    manifest.username
+  )}/new/main?filename=${encodeURIComponent(
+    '.github/workflows/telemetry.yml'
+  )}&value=${encodeURIComponent(workflowYaml)}`;
+
   const handlePushToGitHub = async () => {
     setIsPushing(true);
     setPushMessage(null);
@@ -97,15 +105,25 @@ export const ReadmeWorkflowView: React.FC<ReadmeWorkflowViewProps> = ({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ manifest, telemetry, config }),
       });
-      const data = (await res.json()) as {
-        ok: boolean;
-        pushedFiles?: string[];
-        error?: string;
-      };
-      if (res.ok && data.ok) {
+      const rawText = await res.text();
+      let data: { ok?: boolean; pushedFiles?: string[]; workflowPushed?: boolean; error?: string } = {};
+      try {
+        data = JSON.parse(rawText);
+      } catch {
+        data = {
+          ok: false,
+          error:
+            'Your GitHub token in GH_TOKEN / GITHUB_TOKEN is read-only. Click the AI Studio GitHub icon in the top-right bar to sync README.md & SVGs, or click "Install Workflow on GitHub ↗" below to activate the automated Action.',
+        };
+      }
+
+      if (data.ok) {
+        const wfNote = data.workflowPushed
+          ? ' (including .github/workflows/telemetry.yml)'
+          : ' (use "Install Workflow on GitHub ↗" below if .github/workflows/telemetry.yml is not yet in your repo)';
         setPushMessage({
           ok: true,
-          text: `Pushed ${data.pushedFiles?.length || 6} files directly to github.com/${manifest.username}/${manifest.username}`,
+          text: `Pushed ${data.pushedFiles?.length || 6} files directly to github.com/${manifest.username}/${manifest.username}${wfNote}`,
         });
       } else {
         setPushMessage({
@@ -116,7 +134,7 @@ export const ReadmeWorkflowView: React.FC<ReadmeWorkflowViewProps> = ({
     } catch {
       setPushMessage({
         ok: false,
-        text: 'Network error while contacting server',
+        text: 'Could not reach server. Make sure the preview server is running or use the AI Studio GitHub sync button in the top-right toolbar.',
       });
     } finally {
       setIsPushing(false);
@@ -135,10 +153,11 @@ export const ReadmeWorkflowView: React.FC<ReadmeWorkflowViewProps> = ({
             README.md &amp; Automated GitHub Actions Telemetry
           </h1>
           <p className="mt-1.5 text-sm text-[#94969C] max-w-2xl">
-            Your <code className="text-[#ECEAE4]">/README.md</code> and four{' '}
-            <code className="text-[#ECEAE4]">/assets/*.svg</code> files are saved to the workspace root
-            (without <code className="text-[#ECEAE4]">.github/workflows</code> on disk so GitHub OAuth
-            pushes are never blocked by workflow scope restrictions).
+            Your <code className="text-[#ECEAE4]">/README.md</code>, four{' '}
+            <code className="text-[#ECEAE4]">/assets/*.svg</code> files, and{' '}
+            <code className="text-[#ECEAE4]">/scripts/update-telemetry.mjs</code> are saved to the
+            workspace root. We keep <code className="text-[#ECEAE4]">.github/workflows</code> off local
+            disk so AI Studio&apos;s GitHub OAuth sync button never fails with workflow permission errors.
           </p>
         </div>
 
@@ -176,7 +195,7 @@ export const ReadmeWorkflowView: React.FC<ReadmeWorkflowViewProps> = ({
       {pushMessage && (
         <div
           role="status"
-          className={`p-4 rounded-xl border text-xs font-mono-tabular ${
+          className={`p-4 rounded-xl border text-xs font-mono-tabular leading-relaxed ${
             pushMessage.ok
               ? 'bg-[#0E1512] border-[#264032] text-[#ECEAE4]'
               : 'bg-[#171112] border-[#42262A] text-[#ECEAE4]'
@@ -223,35 +242,56 @@ export const ReadmeWorkflowView: React.FC<ReadmeWorkflowViewProps> = ({
 
         {/* Column 2: /.github/workflows/telemetry.yml */}
         <section className="p-6 bg-[#0B0D11] border border-[#1E2028] rounded-xl space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <h2 className="text-base font-medium text-[#ECEAE4]">
                 /.github/workflows/telemetry.yml
               </h2>
               <p className="text-xs text-[#94969C] font-mono-tabular">
-                Runs scripts/update-telemetry.mjs on schedule &amp; workflow_dispatch
+                Runs scripts/update-telemetry.mjs every 12h &amp; commits updated SVGs
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => handleCopy('action', workflowYaml)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[#ECEAE4] bg-[#141720] hover:bg-[#1C202C] border border-[#262934] rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
-            >
-              {copiedKey === 'action' ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-[#D99B52]" />
-                  <span>Copied</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-3.5 h-3.5 text-[#94969C]" />
-                  <span>Copy Workflow YAML</span>
-                </>
-              )}
-            </button>
+            <div className="flex items-center gap-2">
+              <a
+                href={githubNewWorkflowUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[#07080A] bg-[#D99B52] hover:bg-[#E3AA63] rounded-lg transition-colors whitespace-nowrap shrink-0"
+              >
+                <span>Install Workflow on GitHub ↗</span>
+              </a>
+              <button
+                type="button"
+                onClick={() => handleCopy('action', workflowYaml)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[#ECEAE4] bg-[#141720] hover:bg-[#1C202C] border border-[#262934] rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              >
+                {copiedKey === 'action' ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-[#D99B52]" />
+                    <span>Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5 text-[#94969C]" />
+                    <span>Copy YAML</span>
+                  </>
+                )}
+              </button>
+            </div>
           </div>
 
-          <pre className="p-4 bg-[#07080A] border border-[#1E2028] rounded-lg text-xs font-mono-tabular text-[#94B8D7] overflow-x-auto max-h-[540px] leading-relaxed">
+          <div className="p-3.5 bg-[#11131A] border border-[#222634] rounded-lg text-xs text-[#94969C] leading-relaxed">
+            <strong className="text-[#ECEAE4]">How Auto-Sync Works:</strong>{' '}
+            <code className="text-[#94B8D7]">scripts/update-telemetry.mjs</code> is already synced in
+            your repository. Click <strong className="text-[#D99B52]">Install Workflow on GitHub ↗</strong>{' '}
+            above once—it opens GitHub with <code className="text-[#ECEAE4]">.github/workflows/telemetry.yml</code>{' '}
+            pre-filled. Click <strong className="text-[#ECEAE4]">Commit changes</strong>, and GitHub
+            Actions will automatically run every 12 hours (using GitHub&apos;s built-in{' '}
+            <code className="text-[#ECEAE4]">GITHUB_TOKEN</code>) to refresh your repo count, yearly
+            contributions, and language distribution SVGs.
+          </div>
+
+          <pre className="p-4 bg-[#07080A] border border-[#1E2028] rounded-lg text-xs font-mono-tabular text-[#94B8D7] overflow-x-auto max-h-[460px] leading-relaxed">
             <code>{workflowYaml}</code>
           </pre>
         </section>
