@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1192 336" width="100%" height="100%" role="img" aria-label="Selected Systems and Research Artifacts">
+  
+  <g transform="translate(0, 0)">
+    <rect width="588" height="160" rx="10" fill="#121318" stroke="#262934" stroke-width="1" />
+    <text x="24" y="32" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#D99B52" letter-spacing="1.2">
+      01 · INFORMATION RETRIEVAL · ASSOCIATIVE MEMORY
+    </text>
+    <text x="24" y="60" font-family="Georgia, 'Cormorant Garamond', serif" font-size="23" font-weight="600" fill="#ECEAE4">
+      Asteria
+    </text>
+    <text x="24" y="88" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12.5" fill="#94969C">
+      A system exploring how scattered information can be retrieved, connected, and made genuinel...
+    </text>
+    <text x="24" y="134" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#94B8D7">
+      Python · Active
+    </text>
+    
+        <g transform="translate(495, 76)" stroke="#D99B52" fill="none">
+          <circle cx="0" cy="0" r="32" stroke="#262934" stroke-dasharray="2 4" />
+          <line x1="-18" y1="-12" x2="14" y2="-8" stroke-width="1" opacity="0.6" />
+          <line x1="14" y1="-8" x2="4" y2="18" stroke-width="1" opacity="0.6" />
+          <line x1="-18" y1="-12" x2="4" y2="18" stroke-width="1" opacity="0.6" />
+          <line x1="4" y1="18" x2="-20" y2="14" stroke="#94B8D7" stroke-width="1" opacity="0.6" />
+          <circle cx="-18" cy="-12" r="3.5" fill="#D99B52" />
+          <circle cx="14" cy="-8" r="3.5" fill="#94B8D7" />
+          <circle cx="4" cy="18" r="4" fill="#ECEAE4" />
+          <circle cx="-20" cy="14" r="2.5" fill="#94B8D7" />
+        </g>
+  </g>
+
+  <g transform="translate(604, 0)">
+    <rect width="588" height="160" rx="10" fill="#121318" stroke="#262934" stroke-width="1" />
+    <text x="24" y="32" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#D99B52" letter-spacing="1.2">
+      02 · EPISTEMOLOGY · CONSTRAINED REASONING
+    </text>
+    <text x="24" y="60" font-family="Georgia, 'Cormorant Garamond', serif" font-size="23" font-weight="600" fill="#ECEAE4">
+      Fathom
+    </text>
+    <text x="24" y="88" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12.5" fill="#94969C">
+      An experiment in constrained conversational reasoning—giving a system deliberate boundaries...
+    </text>
+    <text x="24" y="134" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#94B8D7">
+      Python · Complete
+    </text>
+    
+        <g transform="translate(495, 76)" fill="none">
+          <circle cx="0" cy="0" r="30" stroke="#D99B52" stroke-width="1.4" stroke-dasharray="4 3" />
+          <circle cx="0" cy="0" r="16" fill="#D99B52" fill-opacity="0.12" stroke="#ECEAE4" stroke-width="1" />
+          <circle cx="0" cy="0" r="2.5" fill="#ECEAE4" />
+          <text x="0" y="44" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8.5" fill="#94969C">BOUNDARY</text>
+        </g>
+  </g>
+
+  <g transform="translate(0, 176)">
+    <rect width="588" height="160" rx="10" fill="#121318" stroke="#262934" stroke-width="1" />
+    <text x="24" y="32" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#D99B52" letter-spacing="1.2">
+      03 · COMPUTER VISION · GESTURE TRANSLATION
+    </text>
+    <text x="24" y="60" font-family="Georgia, 'Cormorant Garamond', serif" font-size="23" font-weight="600" fill="#ECEAE4">
+      Samvedna
+    </text>
+    <text x="24" y="88" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12.5" fill="#94969C">
+      Translating continuous visual gesture into machine-readable language, using Indian Sign Lan...
+    </text>
+    <text x="24" y="134" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#94B8D7">
+      Python · OpenCV · Active
+    </text>
+    
+        <g transform="translate(495, 78)" stroke="#94B8D7" stroke-width="1.2" fill="none">
+          <polyline points="-18,18 -8,2 0,-18" />
+          <polyline points="-8,2 8,-14 16,-24" />
+          <polyline points="-8,2 18,-2 26,-6" />
+          <circle cx="-18" cy="18" r="2.5" fill="#D99B52" />
+          <circle cx="-8" cy="2" r="2.5" fill="#ECEAE4" />
+          <circle cx="0" cy="-18" r="2.2" fill="#94B8D7" />
+          <circle cx="16" cy="-24" r="2.2" fill="#94B8D7" />
+          <circle cx="26" cy="-6" r="2.2" fill="#94B8D7" />
+        </g>
+  </g>
+
+  <g transform="translate(604, 176)">
+    <rect width="588" height="160" rx="10" fill="#121318" stroke="#262934" stroke-width="1" />
+    <text x="24" y="32" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#D99B52" letter-spacing="1.2">
+      04 · OPTICAL FLOW · COMPUTATIONAL CINEMATOGRAPHY
+    </text>
+    <text x="24" y="60" font-family="Georgia, 'Cormorant Garamond', serif" font-size="23" font-weight="600" fill="#ECEAE4">
+      Cinematic Frame Interpolation
+    </text>
+    <text x="24" y="88" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12.5" fill="#94969C">
+      Generating intermediate motion frames by treating dense motion estimation as the core probl...
+    </text>
+    <text x="24" y="134" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#94B8D7">
+      Python · C/C++ · Complete
+    </text>
+    
+        <g transform="translate(495, 76)" fill="none">
+          <rect x="-32" y="-22" width="22" height="36" rx="2" stroke="#94969C" stroke-width="1" />
+          <rect x="-11" y="-18" width="22" height="36" rx="2" stroke="#D99B52" stroke-width="1.4" stroke-dasharray="2 2" />
+          <rect x="10" y="-14" width="22" height="36" rx="2" stroke="#94969C" stroke-width="1" />
+          <line x1="-20" y1="-4" x2="20" y2="4" stroke="#D99B52" stroke-width="1.2" />
+        </g>
+  </g>
+</svg>

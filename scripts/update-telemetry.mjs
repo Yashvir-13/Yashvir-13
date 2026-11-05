@@ -1,0 +1,143 @@
+#!/usr/bin/env node
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.resolve(__dirname, '..');
+const username = process.env.GITHUB_USERNAME || 'Yashvir-13';
+
+async function run() {
+  const headers = {
+    Accept: 'application/vnd.github+json',
+    'User-Agent': 'Yashvir-13-Profile-Telemetry-Action',
+  };
+  const token =
+    process.env.GITHUB_TOKEN ||
+    process.env.github_token ||
+    process.env.GH_TOKEN ||
+    process.env.gh_token;
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+
+  let publicRepos = 32;
+  let langs = [
+    { name: 'Python', percentage: 64.2, fill: '#D99B52' },
+    { name: 'Jupyter Notebook', percentage: 21.8, fill: '#94B8D7' },
+    { name: 'C / C++', percentage: 8.5, fill: '#ECEAE4' },
+    { name: 'TypeScript & Web', percentage: 5.5, fill: '#94969C' },
+  ];
+
+  try {
+    const [userRes, reposRes] = await Promise.all([
+      fetch(`https://api.github.com/users/${username}`, { headers }),
+      fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`, { headers }),
+    ]);
+
+    if (userRes.ok && reposRes.ok) {
+      const user = await userRes.json();
+      const repos = await reposRes.json();
+      publicRepos = user.public_repos ?? publicRepos;
+
+      const ownRepos = Array.isArray(repos) ? repos.filter((r) => !r.fork) : [];
+      const counts = {};
+      for (const r of ownRepos) {
+        const l = r.language || 'Python';
+        counts[l] = (counts[l] || 0) + 1;
+      }
+      const total = Object.values(counts).reduce((a, b) => a + b, 0) || 1;
+      const fills = ['#D99B52', '#94B8D7', '#ECEAE4', '#94969C'];
+      const computed = Object.entries(counts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 4)
+        .map(([name, c], i) => ({
+          name: name === 'C++' || name === 'C' ? 'C / C++' : name,
+          percentage: Number(((c / total) * 100).toFixed(1)),
+          fill: fills[i] || '#94969C',
+        }));
+      if (computed.length >= 2) {
+        langs = computed;
+      }
+    }
+  } catch (err) {
+    console.warn('Using fallback telemetry snapshot:', err.message);
+  }
+
+  const today = new Date().toISOString().slice(0, 10);
+
+  const telemetrySvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 220" width="100%" height="100%" role="img" aria-label="GitHub Repository Telemetry for ${username}">
+  <defs>
+    <linearGradient id="card-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121318" />
+      <stop offset="100%" stop-color="#060709" />
+    </linearGradient>
+  </defs>
+  <rect width="580" height="220" rx="10" fill="url(#card-bg)" stroke="#262934" stroke-width="1" />
+  <text x="26" y="34" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#D99B52" letter-spacing="1.5">03A · REPOSITORY CADENCE &amp; SYSTEMS INDEX</text>
+  <text x="554" y="34" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#94969C">@${username}</text>
+  <line x1="26" y1="48" x2="554" y2="48" stroke="#262934" stroke-width="1" />
+  <g transform="translate(26, 76)">
+    <text x="0" y="0" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#94969C">Public Repositories</text>
+    <text x="0" y="28" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="26" font-weight="600" fill="#ECEAE4">${publicRepos}</text>
+    <text x="165" y="0" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#94969C">Core Research Streams</text>
+    <text x="165" y="28" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="26" font-weight="600" fill="#ECEAE4">06</text>
+    <text x="340" y="0" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#94969C">Primary Focus</text>
+    <text x="340" y="24" font-family="Georgia, serif" font-style="italic" font-size="17" fill="#D99B52">Vision &amp; Epistemics</text>
+  </g>
+  <g transform="translate(26, 138)">
+    <text x="0" y="0" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#94969C">Domains: Computer Vision · Optical Flow · Multi-LLM Game Theory · ISL</text>
+    <text x="0" y="22" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#ECEAE4">Stack: Python · PyTorch · C/C++ · OpenCV</text>
+    <text x="0" y="48" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#94969C">SYNCED: ${today} · SELF-CONTAINED SVG</text>
+  </g>
+</svg>`;
+
+  let currentX = 26;
+  const barWidth = 528;
+  const barRects = langs
+    .map((l) => {
+      const w = Math.max(8, (l.percentage / 100) * barWidth);
+      const x = currentX;
+      currentX += w;
+      return `<rect x="${x.toFixed(1)}" y="66" width="${Math.max(2, w - 3).toFixed(1)}" height="10" rx="2" fill="${l.fill}" />`;
+    })
+    .join('\n    ');
+
+  const legendItems = langs
+    .map((l, idx) => {
+      const col = idx % 2;
+      const row = Math.floor(idx / 2);
+      const lx = 26 + col * 268;
+      const ly = 114 + row * 42;
+      return `<g transform="translate(${lx}, ${ly})">
+      <rect x="0" y="-9" width="8" height="8" rx="1.5" fill="${l.fill}" />
+      <text x="16" y="-1" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12.5" font-weight="500" fill="#ECEAE4">${l.name}</text>
+      <text x="246" y="-1" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#94969C">${l.percentage.toFixed(1)}%</text>
+      <line x1="0" y1="10" x2="246" y2="10" stroke="#262934" stroke-width="0.75" />
+    </g>`;
+    })
+    .join('\n    ');
+
+  const languagesSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 220" width="100%" height="100%" role="img" aria-label="Language Distribution for ${username}">
+  <defs>
+    <linearGradient id="lang-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121318" />
+      <stop offset="100%" stop-color="#060709" />
+    </linearGradient>
+  </defs>
+  <rect width="580" height="220" rx="10" fill="url(#lang-bg)" stroke="#262934" stroke-width="1" />
+  <text x="26" y="34" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#94B8D7" letter-spacing="1.5">03B · LANGUAGES &amp; EXPERIMENTAL MEDIUMS</text>
+  <text x="554" y="34" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#94969C">DISTRIBUTION</text>
+  <line x1="26" y1="48" x2="554" y2="48" stroke="#262934" stroke-width="1" />
+  <g>${barRects}</g>
+  ${legendItems}
+  <text x="26" y="198" font-family="Georgia, serif" font-style="italic" font-size="13.5" fill="#94969C">Balanced between rapid PyTorch experimentation and low-level C/C++ optical algorithms.</text>
+</svg>`;
+
+  await fs.mkdir(path.join(rootDir, 'assets'), { recursive: true });
+  await fs.writeFile(path.join(rootDir, 'assets', 'telemetry.svg'), telemetrySvg, 'utf8');
+  await fs.writeFile(path.join(rootDir, 'assets', 'languages.svg'), languagesSvg, 'utf8');
+  console.log(`Updated assets/telemetry.svg and assets/languages.svg for ${username}`);
+}
+
+run();

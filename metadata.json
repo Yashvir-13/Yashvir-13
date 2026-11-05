@@ -1,0 +1,8 @@
+{
+  "name": "Yashvir-13 — Profile Monograph & SVG Studio",
+  "description": "Dynamic GitHub profile repository and interactive SVG monograph studio curating machine perception, computer vision, cinema, music, and philosophy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
