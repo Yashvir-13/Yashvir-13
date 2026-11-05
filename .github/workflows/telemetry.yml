@@ -1,0 +1,40 @@
+name: Update Self-Contained SVG Telemetry
+
+on:
+  schedule:
+    # Runs every 12 hours to refresh repository metrics & language distribution
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/update-telemetry.mjs'
+
+permissions:
+  contents: write
+
+jobs:
+  update-profile-svgs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Yashvir-13 Profile Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Fetch Live GitHub Telemetry & Regenerate SVGs
+        env:
+          GITHUB_USERNAME: Yashvir-13
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
+        run: node scripts/update-telemetry.mjs
+
+      - name: Commit & Push Updated SVG Assets
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions Telemetry"
+          git add assets/telemetry.svg assets/languages.svg
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(telemetry): refresh self-contained profile SVG cards" && git push)
